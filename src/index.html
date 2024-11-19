@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Forms Practice</title>
+    <style>
+        select, fieldset { display: block; margin: 1rem 0; }
+        button { display: block; margin: 1rem auto; }
+        form { width: 19rem; padding: 1rem; border: 0.1rem solid black; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Forms Practice</h1>
+        <form id="new-user-form" aria-labelledby="form-heading">
+            <h2 id="form-heading">Create A New User</h2>
+            <label for="username">Username:</label>
+            <!--`placeholder` shows an example or a hint text inside the input before the user types anything. -->
+            <input type="text" id="username" name="username" placeholder="Add your username">
+            <!-- We use <fieldset> to group related form elements together. -->
+            <fieldset>
+                <!-- The <legend> tag gives a title or description for the group of inputs inside the <fieldset>. -->
+                <legend>Coding Level</legend>
+                <!-- A radio button is similar to a checkbox, 
+                 but allows the user to select only one option from a group of related choices.
+                
+                 Even though labels are usually placed before other inputs, 
+                 it's common practice to place them after radio inputs for better style and readability.
+                
+                 All radio inputs must have the same name attribute to make sure they are grouped together, 
+                 allowing only one option to be selected.
+
+                 It's important to note that the value attribute is what gets registered when the user submits the form, 
+                 while the label is only what the user sees on the front end.
+                 !-->
+                <input type="radio" value="beginner" id="beginner" name="codingLevel" checked />
+                <label for="beginner">Beginner</label>
+                <input type="radio" value="proficient" id="proficient" name="codingLevel" />
+                <label for="proficient">Proficient</label>
+            </fieldset>
+            <label for="location">Location:</label>
+            <!-- The <select> element creates a dropdown menu, 
+                and the <option> elements are the choices the user can select from. -->
+            <select name="location" id="location">
+                <option value="brooklyn">Brooklyn</option>
+                <option value="other borough">Other Borough</option>
+                <option value="out of state">Out Of State</option>
+            </select>
+            <input type="checkbox" id="did-like-assignment" name="didLikeAssignment">
+            <label for="did-like-assignment">Did you enjoy this assignment?</label>
+            <button>Submit</button>
+        </form>
+        <section id="results" aria-labelledby="results-heading">
+            <!-- The <span> elements are placeholders where we will display the user's input after they submit the form. -->
+            <h2 id="results-heading">Results</h2>
+            <p>Username: <span id="results-username"></span></p>
+            <p>Coding level: <span id="results-coding-level"></span></p>
+            <p>Location: <span id="results-location"></span></p>
+            <p>Did you like this assignment? <span id="results-did-like-assignment"></span></p>
+        </section>
+        <!-- This script tag connects the "index.js" file to the HTML, so the JavaScript code runs on the page. -->
+        <script src="index.js"></script>
+    </main>
+</body>
+</html>
